@@ -21,3 +21,6 @@ function checkLength(verifiedString, maxLength) {
     return true;
   }
 }
+
+generateRandom(10, 20);
+checkLength("Привет!", 10);
