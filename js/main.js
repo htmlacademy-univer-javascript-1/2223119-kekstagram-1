@@ -1,17 +1,17 @@
 function generateRandom(from, before) {
-  if (from = before){
+  if (from == before){
     return from;
   }
   if (from > before){
-    return Math.round(max + Math.random() * (from - before));
+    return Math.round(before + Math.random() * (from - before));
   }
   return Math.round(from + Math.random() * (before - from));
 }
 
 function checkLength(verifiedString, maxLength) {
   if (verifiedString.length >= maxLength) {
-      return false;
+    return false;
   }else{
-      return true;
+    return true;
   }
 }
