@@ -1,5 +1,5 @@
 function generateRandom(from, before) {
-  if (from == before){
+  if (from === before){
     return from;
   }
   if (from > before){
