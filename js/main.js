@@ -1,4 +1,8 @@
 function generateRandom(from, before) {
+  if (from < 0)
+    from = 0;
+  if (before < 0)
+    before = 0;
   if (from === before){
     return from;
   }
