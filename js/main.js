@@ -47,7 +47,7 @@ function generateComment(i) {
 }
 
 function generateDescription(identifier){
-  let comments = Array(3);
+  const comments = Array(3);
   for (let i = 0; i < 3; i++) {
     comments[i] = generateComment(i + 1);
   }
@@ -62,7 +62,7 @@ function generateDescription(identifier){
 }
 
 function generateDescriptions(){
-  let descriptions = Array(25);
+  const descriptions = Array(25);
   for (let i = 0; i < 25; i++) {
     descriptions[i] = generateDescription(i + 1);
   }
