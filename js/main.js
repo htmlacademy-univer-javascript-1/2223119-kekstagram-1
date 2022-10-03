@@ -43,11 +43,11 @@ function generateComment(i) {
     avatar: img/avatar-generateRandom(1, 6).svg,
     message: COMMENTS[generateRandom(0, COMMENTS.length - 1)],
     name: NAMES[generateRandom(0, NAMES.length - 1)]
-  }
+  };
 }
 
 function generateDescription(identifier){
-  var comments = Array(3);
+  let comments = Array(3);
   for (let i = 0; i < 3; i++) {
     comments[i] = generateComment(i + 1);
   }
@@ -58,17 +58,17 @@ function generateDescription(identifier){
     descriptions: DESCRIPTIONS[generateRandom(0, DESCRIPTIONS.length - 1)],
     likes: generateRandom(15, 200),
     comments: comments
-  }
+  };
 }
 
 function generateDescriptions(){
-  var descriptions = Array(25);
+  let descriptions = Array(25);
   for (let i = 0; i < 25; i++) {
     descriptions[i] = generateDescription(i + 1);
   }
-  return (descriptions)
+  return (descriptions);
 }
 
-console.log(generateDescriptions);
+generateDescriptions();
 
 checkLength('Привет!', 10);
