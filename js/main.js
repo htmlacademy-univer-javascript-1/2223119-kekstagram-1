@@ -40,7 +40,7 @@ function checkLength(verifiedString, maxLength) {
 function generateComment(i) {
   return {
     id: i,
-    avatar: img/avatar-generateRandom(1, 6).svg,
+    avatar: 'img/avatar-generateRandom(1, 6).svg',
     message: COMMENTS[generateRandom(0, COMMENTS.length - 1)],
     name: NAMES[generateRandom(0, NAMES.length - 1)]
   };
@@ -54,7 +54,7 @@ function generateDescription(identifier){
 
   return {
     id: identifier,
-    url: photos/identifier.jpg,
+    url: 'photos/identifier.jpg',
     descriptions: DESCRIPTIONS[generateRandom(0, DESCRIPTIONS.length - 1)],
     likes: generateRandom(15, 200),
     comments: comments
