@@ -35,8 +35,6 @@ function generateRandom(a, b) {
 
 export {generateRandom, DESCRIPTIONS, COMMENTS, NAMES};
 
-
-
 function checkLength(verifiedString, maxLength) {
   return (verifiedString.length >= maxLength);
 }
