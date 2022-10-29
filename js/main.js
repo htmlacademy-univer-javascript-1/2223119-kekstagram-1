@@ -1,3 +1,3 @@
-import {generateDescriptions} from './util.js';
+import {generateDescriptions} from './data.js';
 
 generateDescriptions();

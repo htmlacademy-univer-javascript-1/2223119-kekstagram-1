@@ -1,40 +1,13 @@
-import {generateRandom, DESCRIPTIONS, COMMENTS, NAMES} from './data.js';
+function generateRandom(a, b) {
+  const lower = Math.ceil(Math.min(Math.abs(a), Math.abs(b)));
+  const upper = Math.floor(Math.max(Math.abs(a), Math.abs(b)));
+  const result = Math.random() * (upper - lower + 1) + lower;
 
-function generateComment(number) {
-  const message = Array(generateRandom(1, 2));
-  for (let i = 0; i < message - 1; i++) {
-    message[i] = COMMENTS[generateRandom(0, COMMENTS.length - 1)];
-  }
-
-  return {
-    id: number,
-    avatar: `img/avatar-${generateRandom(1, 6)}.svg`,
-    message: message,
-    name: NAMES[generateRandom(0, NAMES.length - 1)]
-  };
+  return Math.floor(result);
 }
 
-function generateDescription(identifier){
-  const comments = Array(3);
-  for (let i = 0; i < 3; i++) {
-    comments[i] = generateComment(i + 1);
-  }
-
-  return {
-    id: identifier,
-    url: 'photos/identifier.jpg',
-    descriptions: DESCRIPTIONS[generateRandom(0, DESCRIPTIONS.length - 1)],
-    likes: generateRandom(15, 200),
-    comments: comments
-  };
+function checkLength(verifiedString, maxLength) {
+  return (verifiedString.length >= maxLength);
 }
 
-function generateDescriptions(){
-  const descriptions = Array(25);
-  for (let i = 0; i < 25; i++) {
-    descriptions[i] = generateDescription(i + 1);
-  }
-  return (descriptions);
-}
-
-export {generateDescriptions};
+export {generateRandom, checkLength};
