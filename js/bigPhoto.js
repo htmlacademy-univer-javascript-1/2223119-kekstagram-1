@@ -9,14 +9,14 @@ const clickEsc = (evt) => {
   if (evt.key === 'Escape') {
     bigPicture.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
-  };
+  }
 };
 
 document.addEventListener('keydown', clickEsc);
 
 buttonCancel.addEventListener('click', () => {
   bigPicture.classList.add('hidden');
-  document.querySelector('bady').classList.remove('modal-open')
+  document.querySelector('bady').classList.remove('modal-open');
 });
 
 const displayBigPicture = (picture, photoData) => {
@@ -55,7 +55,7 @@ const displayBigPicture = (picture, photoData) => {
 
 const createBigPictures = () => {
   for (let i = 0; i < pictures.length; i++) {
-    displayBigPicture(pictures[i], photosData[i])
+    displayBigPicture(pictures[i], photosData[i]);
   }
 };
 
