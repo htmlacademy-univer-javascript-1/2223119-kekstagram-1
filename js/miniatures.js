@@ -7,7 +7,7 @@ const fragment = document.createDocumentFragment();
 const descriptions = generateDescriptions();
 
 const createMiniatures = () => {
-  descriptions.forEach((description)=> {
+  descriptions.forEach((description) => {
     const photo = templateFragment.cloneNode(true);
 
     photo.querySelector('.picture__img').src = description.url;
