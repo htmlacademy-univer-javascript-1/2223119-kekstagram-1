@@ -1,13 +1,13 @@
 import {generateDescriptions} from './data.js';
 
-const pictures = document.querySelector('.pictures');
+const picturesContainer = document.querySelector('.pictures');
 const templateFragment = document.querySelector('#picture').content;
 
 const fragment = document.createDocumentFragment();
 const descriptions = generateDescriptions();
 
 const createMiniatures = () => {
-  descriptions.forEach((description )=> {
+  descriptions.forEach((description)=> {
     const photo = templateFragment.cloneNode(true);
 
     photo.querySelector('.picture__img').src = description.url;
@@ -17,7 +17,7 @@ const createMiniatures = () => {
     fragment.appendChild(photo);
   });
 
-  pictures.appendChild(fragment);
+  picturesContainer.appendChild(fragment);
 };
 
 createMiniatures();
