@@ -5,18 +5,18 @@ const pictures = document.querySelectorAll('.picture');
 const buttonCancel = document.querySelector('.big-picture__cancel');
 const photosData = generateDescriptions();
 
-const clickEsc = (evt) => {
+const closeBigPicture = (evt) => {
   if (evt.key === 'Escape') {
     bigPicture.classList.add('hidden');
     document.querySelector('body').classList.remove('modal-open');
   }
 };
 
-document.addEventListener('keydown', clickEsc);
+document.addEventListener('keydown', closeBigPicture);
 
 buttonCancel.addEventListener('click', () => {
   bigPicture.classList.add('hidden');
-  document.querySelector('bady').classList.remove('modal-open');
+  document.querySelector('body').classList.remove('modal-open');
 });
 
 const displayBigPicture = (picture, photoData) => {

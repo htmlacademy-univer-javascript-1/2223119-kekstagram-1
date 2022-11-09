@@ -1,6 +1,6 @@
 import {generateDescriptions} from './data.js';
 
-const pictures = document.querySelector('.pictures');
+const picturesContainer = document.querySelector('.pictures');
 const templateFragment = document.querySelector('#picture').content;
 
 const fragment = document.createDocumentFragment();
@@ -17,7 +17,7 @@ const createMiniatures = () => {
     fragment.appendChild(photo);
   });
 
-  pictures.appendChild(fragment);
+  picturesContainer.appendChild(fragment);
 };
 
 createMiniatures();
