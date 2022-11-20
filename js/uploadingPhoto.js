@@ -6,7 +6,7 @@ file.addEventListener('change', () => {
   document.querySelector('body').classList.add('modal-open');
 });
 
-file.addEventListener('change', () => {
+cancelBtn.addEventListener('change', () => {
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
 });
@@ -17,6 +17,6 @@ const onEscKeyDown = (evt) => {
     document.querySelector('body').classList.remove('modal-open');
     document.removeEventListener('keydown', onEscKeyDown);
   }
-}
+};
 
 document.addEventListener('keydown', onEscKeyDown);

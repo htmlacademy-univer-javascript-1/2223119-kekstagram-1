@@ -15,9 +15,9 @@ const pristine = new Pristine(form, {
 let messageHashtags = '';
 let messageDescription = '';
 
-function hashtagsValidator (hashtags) {
+function hashtagsValidator (verifiable) {
   messageHashtags = '';
-  const cleanHashtag = hashtags.toLowerCase().split(/\s+/);
+  const cleanHashtag = verifiable.toLowerCase().split(/\s+/);
 
   if (cleanHashtag.length === 1 && cleanHashtag[0].length === 0) {
     return true;
@@ -30,8 +30,8 @@ function hashtagsValidator (hashtags) {
 
   cleanHashtag.forEach(el => {
     if (cleanHashtag.includes(el, cleanHashtag.indexOf(el) + 1)) {
-        messageHashtags = 'Один и тот же хэш-тег не может быть использован дважды';
-        return false;
+      messageHashtags = 'Один и тот же хэш-тег не может быть использован дважды';
+      return false;
     }
 
     if (el.includes('#', 1)) {
@@ -61,20 +61,20 @@ function hashtagsValidator (hashtags) {
   });
 
   return true;
-};
+}
 
-function descriptionValidator (description) {
+function descriptionValidator (verifiable) {
   messageDescription = '';
 
-  if (description.length === 0 ) {
+  if (verifiable.length === 0 ) {
     return true;
   }
 
-  if (description.length > 140) {
+  if (verifiable.length > 140) {
     messageDescription = 'Длина комментария не может составлять больше 140 символов';
     return false;
   }
-};
+}
 
 pristine.addValidator(hashtags, hashtagsValidator, messageHashtags);
 pristine.addValidator(description, descriptionValidator, messageDescription);
