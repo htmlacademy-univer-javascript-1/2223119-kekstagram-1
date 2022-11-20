@@ -28,7 +28,7 @@ function hashtagsValidator (verifiable) {
     return false;
   }
 
-  cleanHashtag.forEach(el => {
+  cleanHashtag.forEach((el) => {
     if (cleanHashtag.includes(el, cleanHashtag.indexOf(el) + 1)) {
       messageHashtags = 'Один и тот же хэш-тег не может быть использован дважды';
       return false;
