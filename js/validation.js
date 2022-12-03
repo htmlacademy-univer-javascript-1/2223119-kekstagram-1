@@ -1,19 +1,16 @@
 const form = document.querySelector('.imd-upload__form');
-const hashtags = document.querySelector('.text__hashtags');
-const description = document.querySelector('.text__description');
-const uploadBtn = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(form, {
-  classTo: 'img-upload__field-wrapper',
-  errorClass: 'img-upload__field-wrapper--invalid',
-  successClass: 'img-upload__field-wrapper--valid',
+  classTo: 'img-upload__form',
   errorTextParent: 'img-upload__field-wrapper',
-  errorTextTag: 'div',
-  errorTextClass: 'img-upload__error'
-}, false);
+  errorTextTag: 'span',
+  errorTextClass: 'form__error'
+});
+
+const hashtags = document.querySelector('.text__hashtags');
+const uploadBtn = document.querySelector('.img-upload__submit');
 
 let messageHashtags = '';
-let messageDescription = '';
 
 function hashtagsValidator (verifiable) {
   messageHashtags = '';
@@ -63,31 +60,12 @@ function hashtagsValidator (verifiable) {
   return true;
 }
 
-function descriptionValidator (verifiable) {
-  messageDescription = '';
-
-  if (verifiable.length === 0 ) {
-    return true;
-  }
-
-  if (verifiable.length > 140) {
-    messageDescription = 'Длина комментария не может составлять больше 140 символов';
-    return false;
-  }
-}
-
 pristine.addValidator(hashtags, hashtagsValidator, messageHashtags);
-pristine.addValidator(description, descriptionValidator, messageDescription);
 
-form.addEventListener('input', () => {
+form.addEventListener('submit', () => {
   if (pristine.validate()) {
-    uploadBtn.disabled = false;
-  } else {
     uploadBtn.disabled = true;
+  } else {
+    uploadBtn.disabled = false;
   }
-});
-
-form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  pristine.validate();
 });
