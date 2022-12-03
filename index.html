@@ -30,7 +30,7 @@
       <section class="img-upload">
         <div class="img-upload__wrapper">
           <h2 class="img-upload__title  visually-hidden">Загрузка фотографии</h2>
-          <form class="img-upload__form" id="upload-select-image" method="post" enctype="multipart/form-data" autocomplete="off">
+          <form class="img-upload__form" id="upload-select-image" action="https://26.javascript.pages.academy/kekstagram" method="post" enctype="multipart/form-data" autocomplete="off">
 
             <!-- Изначальное состояние поля для загрузки изображения -->
             <fieldset class="img-upload__start">
@@ -116,10 +116,10 @@
                 <!-- Добавление хэш-тегов и комментария к изображению -->
                 <fieldset class="img-upload__text text">
                   <div class="img-upload__field-wrapper">
-                    <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег">
+                    <input class="text__hashtags" name="hashtags" placeholder="#ХэшТег" autocomplete="off">
                   </div>
                   <div class="img-upload__field-wrapper">
-                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..."></textarea>
+                    <textarea class="text__description" name="description" placeholder="Ваш комментарий..." autocomplete="off" maxlength="140"></textarea>
                   </div>
                 </fieldset>
 
@@ -232,7 +232,14 @@
     <div class="img-upload__message  img-upload__message--loading">Загружаем...</div>
   </template>
 
+  <script src="./pristine/pristine.min.js"></script>
   <script src="./js/main.js" type="module"></script>
-
+  <script src="./js/bigPhoto.js" type="module"></script>
+  <script src="./js/data.js" type="module"></script>
+  <script src="./js/main.js" type="module"></script>
+  <script src="./js/miniatures.js" type="module"></script>
+  <script src="./js/uploadingPhoto.js"></script>
+  <script src="./js/util.js" type="module"></script>
+  <script src="./js/validation.js"></script>
 </body>
 </html>
