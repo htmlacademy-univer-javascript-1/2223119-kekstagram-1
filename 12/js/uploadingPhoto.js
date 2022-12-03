@@ -6,7 +6,7 @@ file.addEventListener('change', () => {
   document.querySelector('body').classList.add('modal-open');
 });
 
-cancelBtn.addEventListener('change', () => {
+cancelBtn.addEventListener('click', () => {
   document.querySelector('.img-upload__overlay').classList.add('hidden');
   document.querySelector('body').classList.remove('modal-open');
 });
