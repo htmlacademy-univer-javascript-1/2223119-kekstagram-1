@@ -5,11 +5,16 @@ const effectButtons = document.querySelector('.effects__list');
 
 effectButtons.addEventListener('click', (evt) => {
   if (evt.target.id === 'effect-none') {
-    slider.noUiSlider.destroy();
+    if (slider.noUiSlide) {
+      slider.noUiSlider.destroy();
+    }
     previewPhoto.style.filter = '';
     effectLevelValue.value = '';
   }
   if (evt.target.id === 'effect-chrome') {
+    if (slider.noUiSlide) {
+      slider.noUiSlider.destroy();
+    }
     noUiSlider.create(slider, {
       range: {
         min: 0,
@@ -24,7 +29,9 @@ effectButtons.addEventListener('click', (evt) => {
       effectLevelValue.value = slider.noUiSlider.get();
     });
   } else if (evt.target.id === 'effect-sepia') {
-    slider.noUiSlider.destroy();
+    if (slider.noUiSlide) {
+      slider.noUiSlider.destroy();
+    }
     noUiSlider.create(slider, {
       range: {
         min: 0,
@@ -40,7 +47,9 @@ effectButtons.addEventListener('click', (evt) => {
     });
   }
   if (evt.target.id === 'effect-marvin') {
-    slider.noUiSlider.destroy();
+    if (slider.noUiSlide) {
+      slider.noUiSlider.destroy();
+    }
     noUiSlider.create(slider, {
       range: {
         min: 0,
@@ -56,7 +65,9 @@ effectButtons.addEventListener('click', (evt) => {
     });
   }
   if (evt.target.id === 'effect-phobos') {
-    slider.noUiSlider.destroy();
+    if (slider.noUiSlide) {
+      slider.noUiSlider.destroy();
+    }
     noUiSlider.create(slider, {
       range: {
         min: 0,
@@ -72,7 +83,9 @@ effectButtons.addEventListener('click', (evt) => {
     });
   }
   if (evt.target.id === 'effect-heat') {
-    slider.noUiSlider.destroy();
+    if (slider.noUiSlide) {
+      slider.noUiSlider.destroy();
+    }
     noUiSlider.create(slider, {
       range: {
         min: 0,

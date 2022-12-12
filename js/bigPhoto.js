@@ -1,11 +1,12 @@
-import {generateDescriptions} from './data.js';
+// import {generateDescriptions} from './data.js';
+import {descriptions} from './miniatures.js';
 
 const bigPicture = document.querySelector('.big-picture');
 const pictures = document.querySelectorAll('.picture');
 const buttonCancel = document.querySelector('.big-picture__cancel');
 const buttonShowMoreComments = document.querySelector('.comments-loader');
 const comment = bigPicture.querySelector('.social__comments');
-const photosData = generateDescriptions();
+const photosData = descriptions;
 
 let commentsDataCopy = [];
 

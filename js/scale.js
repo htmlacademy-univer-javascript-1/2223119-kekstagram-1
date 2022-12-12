@@ -8,12 +8,9 @@ const makePhotoSmaller = function () {
   const value = Number(scaleValue.value.replace('%', ''));
 
   if (value > 25) {
-    let newValue = value - 25;
-    if (newValue < 0) {
-      newValue = 0;
-    }
+    const newValue = value - 25;
     imageUploadPreview.style.transform = `scale(${newValue / 100})`;
-    scaleValue.textContent = `${newValue}%`;
+    scaleValue.value = `${newValue}%`;
   }
 };
 

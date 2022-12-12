@@ -21,3 +21,5 @@ const createMiniatures = () => {
 };
 
 createMiniatures();
+
+export {descriptions};

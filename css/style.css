@@ -683,6 +683,7 @@ main {
 }
 
 .text__hashtags {
+  display: block;
   width: 450px;
 
   margin: 0 auto;

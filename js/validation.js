@@ -1,4 +1,4 @@
-const form = document.querySelector('.imd-upload__form');
+const form = document.querySelector('.img-upload__form');
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__form',
@@ -11,6 +11,7 @@ const hashtags = document.querySelector('.text__hashtags');
 const uploadBtn = document.querySelector('.img-upload__submit');
 
 let messageHashtags = '';
+let flag = true;
 
 function hashtagsValidator (verifiable) {
   messageHashtags = '';
@@ -28,41 +29,32 @@ function hashtagsValidator (verifiable) {
   cleanHashtag.forEach((el) => {
     if (cleanHashtag.includes(el, cleanHashtag.indexOf(el) + 1)) {
       messageHashtags = 'Один и тот же хэш-тег не может быть использован дважды';
-      return false;
-    }
-
-    if (el.includes('#', 1)) {
+      flag = false;
+    } else if (el.includes('#', 1)) {
       messageHashtags = 'Хэш-теги разделяются пробелами';
-      return false;
-    }
-
-    if (!el.includes('#')) {
+      flag = false;
+    } else if (!el.includes('#')) {
       messageHashtags = 'Хэш-тег начинается с символа # (решётка)';
-      return false;
-    }
-
-    if (el.length === 1) {
+      flag = false;
+    } else if (el.length === 1) {
       messageHashtags = 'Хеш-тег не может состоять только из одной решётки';
-      return false;
-    }
-
-    if (el.length > 20) {
+      flag = false;
+    } else if (el.length > 20) {
       messageHashtags = 'Максимальная длина одного хэш-тега 20 символов, включая решётку';
-      return false;
-    }
-
-    if (!(/^#[a-zа-яё0-9]{1,19}$/i.test(el))) {
+      flag = false;
+    } else if (!(/^#[a-zа-яё0-9]{1,19}$/i.test(el))) {
       messageHashtags = 'Строка после решётки должна состоять из букв и чисел и не может содержать пробелы, спецсимволы (#, @, $ и т. п.), символы пунктуации (тире, дефис, запятая и т. п.), эмодзи и т. д.';
-      return false;
+      flag = false;
     }
   });
 
-  return true;
+  return flag;
 }
 
-pristine.addValidator(hashtags, hashtagsValidator, messageHashtags);
+pristine.addValidator(hashtags, hashtagsValidator, () => messageHashtags);
 
-form.addEventListener('submit', () => {
+form.addEventListener('submit', (evt) => {
+  evt.preventDefault();
   if (pristine.validate()) {
     uploadBtn.disabled = true;
   } else {
