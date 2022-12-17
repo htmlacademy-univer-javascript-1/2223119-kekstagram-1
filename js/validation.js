@@ -1,3 +1,5 @@
+import {sendData} from './api.js';
+
 const form = document.querySelector('.img-upload__form');
 
 const pristine = new Pristine(form, {
@@ -53,11 +55,31 @@ function hashtagsValidator (verifiable) {
 
 pristine.addValidator(hashtags, hashtagsValidator, () => messageHashtags);
 
-form.addEventListener('submit', (evt) => {
-  evt.preventDefault();
-  if (pristine.validate()) {
-    uploadBtn.disabled = true;
-  } else {
-    uploadBtn.disabled = false;
-  }
-});
+const submitForm = (onSuccess, onError) => {
+  form.addEventListener('submit', (evt) => {
+    evt.preventDefault();
+    const isValid = pristine.validate();
+    if (isValid) {
+      uploadBtn.disabled = true;
+      sendData(
+        () => {
+          onSuccess();
+          uploadBtn.disabled = true;
+        },
+        () => {
+          onError();
+          uploadBtn.disabled = false;
+        },
+        new FormData(form)
+      );
+    }
+  });
+};
+
+// if (pristine.validate()) {
+//   uploadBtn.disabled = true;
+// } else {
+//   uploadBtn.disabled = false;
+// }
+
+export {submitForm};

@@ -1,12 +1,11 @@
-import {generateDescriptions} from './data.js';
+import {createBigPictures} from './bigPhoto.js';
 
 const picturesContainer = document.querySelector('.pictures');
 const templateFragment = document.querySelector('#picture').content.querySelector('.picture');
 
 const fragment = document.createDocumentFragment();
-const descriptions = generateDescriptions();
 
-const createMiniatures = () => {
+const createMiniatures = (descriptions) => {
   descriptions.forEach((description) => {
     const photo = templateFragment.cloneNode(true);
 
@@ -18,8 +17,7 @@ const createMiniatures = () => {
   });
 
   picturesContainer.appendChild(fragment);
+  createBigPictures(descriptions);
 };
 
-createMiniatures();
-
-export {descriptions};
+export {createMiniatures};

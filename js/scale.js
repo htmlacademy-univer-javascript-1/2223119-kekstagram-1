@@ -27,5 +27,12 @@ const makePhotoBigger = function () {
   }
 };
 
+const resetSize = function () {
+  imageUploadPreview.style.transform = 'scale(1)';
+  scaleValue.value = '100%';
+};
+
 smallerButton.addEventListener('click', makePhotoSmaller);
 biggerButton.addEventListener('click', makePhotoBigger);
+
+export {resetSize};

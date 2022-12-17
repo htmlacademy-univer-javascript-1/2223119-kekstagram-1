@@ -1,17 +1,17 @@
 const previewPhoto = document.querySelector('.img-upload__preview img');
 const slider = document.querySelector('.effect-level__slider');
 const effectLevelValue = document.querySelector('.effect-level__value');
-const effectButtons = document.querySelector('.effects__list');
+// const effectButtons = document.querySelector('.effects__list');
 
-effectButtons.addEventListener('click', (evt) => {
-  if (evt.target.id === 'effect-none') {
+const changeFilter = (filter) => {
+  if (filter.target.id === 'effect-none') {
     if (slider.noUiSlide) {
       slider.noUiSlider.destroy();
     }
     previewPhoto.style.filter = '';
     effectLevelValue.value = '';
   }
-  if (evt.target.id === 'effect-chrome') {
+  if (filter.target.id === 'effect-chrome') {
     if (slider.noUiSlide) {
       slider.noUiSlider.destroy();
     }
@@ -28,7 +28,7 @@ effectButtons.addEventListener('click', (evt) => {
       previewPhoto.style.filter = `grayscale(${slider.noUiSlider.get()})`;
       effectLevelValue.value = slider.noUiSlider.get();
     });
-  } else if (evt.target.id === 'effect-sepia') {
+  } else if (filter.target.id === 'effect-sepia') {
     if (slider.noUiSlide) {
       slider.noUiSlider.destroy();
     }
@@ -46,7 +46,7 @@ effectButtons.addEventListener('click', (evt) => {
       effectLevelValue.value = slider.noUiSlider.get();
     });
   }
-  if (evt.target.id === 'effect-marvin') {
+  if (filter.target.id === 'effect-marvin') {
     if (slider.noUiSlide) {
       slider.noUiSlider.destroy();
     }
@@ -64,7 +64,7 @@ effectButtons.addEventListener('click', (evt) => {
       effectLevelValue.value = slider.noUiSlider.get();
     });
   }
-  if (evt.target.id === 'effect-phobos') {
+  if (filter.target.id === 'effect-phobos') {
     if (slider.noUiSlide) {
       slider.noUiSlider.destroy();
     }
@@ -82,7 +82,7 @@ effectButtons.addEventListener('click', (evt) => {
       effectLevelValue.value = slider.noUiSlider.get();
     });
   }
-  if (evt.target.id === 'effect-heat') {
+  if (filter.target.id === 'effect-heat') {
     if (slider.noUiSlide) {
       slider.noUiSlider.destroy();
     }
@@ -100,5 +100,14 @@ effectButtons.addEventListener('click', (evt) => {
       effectLevelValue.value = slider.noUiSlider.get();
     });
   }
-});
+};
 
+const cancelFilter = () => {
+  if (slider.noUiSlide) {
+    slider.noUiSlider.destroy();
+  }
+  previewPhoto.style.filter = '';
+  effectLevelValue.value = '';
+};
+
+export {changeFilter, cancelFilter};
