@@ -47,7 +47,7 @@
                   <!-- Изменение размера изображения -->
                   <fieldset class="img-upload__scale  scale">
                     <button type="button" class="scale__control  scale__control--smaller">Уменьшить</button>
-                    <input type="text" class="scale__control  scale__control--value" value="55%" title="Image Scale" name="scale" readonly>
+                    <input type="text" class="scale__control  scale__control--value" value="100%" title="Image Scale" name="scale" readonly>
                     <button type="button" class="scale__control  scale__control--bigger">Увеличить</button>
                   </fieldset>
 
@@ -155,7 +155,7 @@
           </div>
 
           <!-- Комментарии к изображению -->
-          <div class="social__comment-count"><span class="comments-countt">5</span> из <span class="comments-count">125</span> комментариев</div>
+          <div class="social__comment-count"><span class="comments-shown-count">5</span> из <span class="comments-count">125</span> комментариев</div>
           <ul class="social__comments">
             <li class="social__comment">
               <img class="social__picture" src="img/avatar-4.svg" alt="Аватар комментатора фотографии" width="35" height="35">
@@ -240,10 +240,12 @@
   <script src="./js/data.js" type="module"></script>
   <script src="./js/main.js" type="module"></script>
   <script src="./js/miniatures.js" type="module"></script>
-  <script src="./js/uploadingPhoto.js"></script>
+  <script src="./js/uploadingPhoto.js" type="module"></script>
   <script src="./js/util.js" type="module"></script>
-  <script src="./js/validation.js"></script>
-  <script src="./js/scale.js"></script>
-  <script src="./js/effects.js"></script>
+  <script src="./js/validation.js" type="module"></script>
+  <script src="./js/scale.js" type="module"></script>
+  <script src="./js/effects.js" type="module"></script>
+  <script src="./js/api.js" type="module"></script>
+  <script src="./js/messages.js" type="module"></script>
 </body>
 </html>
