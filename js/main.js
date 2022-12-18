@@ -1,19 +1,19 @@
-import {createMiniatures} from './miniatures.js';
-import './bigPhoto.js';
-import {onKeyDown} from './uploadingPhoto.js';
-import {submitForm} from './validation.js';
+import { createMiniatures } from './miniatures.js';
+import { closeModal } from './uploading-photo.js';
+import { submitForm } from './validation.js';
 import { getData } from './api.js';
-import {showSuccess, showError} from './messages.js';
+import { showSuccess, showError } from './alerts.js';
+import { showFilters } from './filters.js';
 
 getData((photos) => {
   createMiniatures(photos);
+  showFilters(photos);
 });
 
 submitForm(() => {
-  onKeyDown();
-  document.body.append(document.querySelector('#success').content.cloneNode(true));
+  closeModal();
   showSuccess();
 }, () => {
-  onKeyDown();
+  closeModal();
   showError();
 });

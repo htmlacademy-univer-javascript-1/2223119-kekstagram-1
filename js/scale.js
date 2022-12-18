@@ -35,4 +35,4 @@ const resetSize = function () {
 smallerButton.addEventListener('click', makePhotoSmaller);
 biggerButton.addEventListener('click', makePhotoBigger);
 
-export {resetSize};
+export { resetSize };
