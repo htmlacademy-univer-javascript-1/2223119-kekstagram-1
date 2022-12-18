@@ -1,6 +1,8 @@
-import {sendData} from './api.js';
+import { sendData } from './api.js';
 
 const form = document.querySelector('.img-upload__form');
+const hashtags = document.querySelector('.text__hashtags');
+const uploadButton = document.querySelector('.img-upload__submit');
 
 const pristine = new Pristine(form, {
   classTo: 'img-upload__form',
@@ -8,9 +10,6 @@ const pristine = new Pristine(form, {
   errorTextTag: 'span',
   errorTextClass: 'form__error'
 });
-
-const hashtags = document.querySelector('.text__hashtags');
-const uploadBtn = document.querySelector('.img-upload__submit');
 
 let messageHashtags = '';
 let flag = true;
@@ -60,15 +59,15 @@ const submitForm = (onSuccess, onError) => {
     evt.preventDefault();
     const isValid = pristine.validate();
     if (isValid) {
-      uploadBtn.disabled = true;
+      uploadButton.disabled = true;
       sendData(
         () => {
           onSuccess();
-          uploadBtn.disabled = true;
+          uploadButton.disabled = true;
         },
         () => {
           onError();
-          uploadBtn.disabled = false;
+          uploadButton.disabled = false;
         },
         new FormData(form)
       );
@@ -76,10 +75,4 @@ const submitForm = (onSuccess, onError) => {
   });
 };
 
-// if (pristine.validate()) {
-//   uploadBtn.disabled = true;
-// } else {
-//   uploadBtn.disabled = false;
-// }
-
-export {submitForm};
+export { submitForm };
